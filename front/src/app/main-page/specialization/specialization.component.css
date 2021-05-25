@@ -1,0 +1,53 @@
+/* SPECIALIZATION*/
+.section_specialization {
+	padding: 0 0 30px;
+}
+.section_title {
+	padding: 40px 0 5px;
+	text-align: center;
+}
+.section_text {
+	max-height: 10000px;
+}
+
+.limiter {
+  max-height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+.limiter .bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.read-more-checker {
+  opacity: 0;
+  position: absolute;
+}
+.read-more-checker:checked ~ .limiter {
+  max-height: none;
+}
+.read-more-checker:checked ~ .limiter .bottom {
+  opacity: 0;
+  transition: 0.3s;
+}
+.read-more-checker ~ .read-more-button:before {
+  content: "Читать дальше »";
+  font-size: 20px;
+}
+.read-more-checker:checked ~ .read-more-button:before {
+  content: "Скрыть «";
+}
+.read-more-button {
+  cursor: pointer;
+  display: inline-block;
+  color: #00A460;
+  text-decoration: underline;
+}
+.stat{
+  text-align: center;
+}

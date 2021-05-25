@@ -1,0 +1,32 @@
+<div
+  class="row"
+>
+  <div class="col s12">
+    <div class="collection" *ngIf="revArr.length !== 0; else empty">
+      <a
+        *ngFor="let review of revArr"
+        [routerLink]="['/adminPanel', review._id]"
+        class="collection-item"
+        (click)="onSelectPosition(review)"
+      >
+        {{review.feedback}}
+      </a>
+      <span>
+    </span>
+    </div>
+    <ng-template #empty>
+      <div class="center">
+        У вас нет ни одного отзыва
+      </div>
+    </ng-template>
+  </div>
+</div>
+<ul>
+  <li class="bold last">
+    <a href="#" class="waves-effect waves-orange" (click)="logout($event)">Выйти</a>
+  </li>
+</ul>
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>

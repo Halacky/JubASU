@@ -1,0 +1,95 @@
+<app-specialization></app-specialization>
+
+<app-memories></app-memories>
+<div class="container">
+    <div class="btnMemo">
+        <button class="btn" [routerLink]="['/reviews']" >Смотреть другие отзывы</button>  
+    </div>
+</div>
+
+<app-map></app-map>
+<div class="container">
+    <div class="btnMemo">
+        <button class="btn" (click)="createReview()">Написать отзыв</button>  
+    </div>
+</div>
+
+<app-plan></app-plan>
+
+
+<div class="fixed-action-btn">
+    <a id="menu" class="waves-effect waves-light btn-large btn-floating" (click)="onInfo()"><i class="material-icons">info</i></a>
+ </div>
+
+<div class="tap-target" data-target="menu" #tapTarget>
+    <div class="tap-target-content">
+        <h5>Зачем нужен этот сайт?</h5>
+        <p>Сайт сделан в честь юбилея специальности АСУ. На этом сайте вы можете оставить свой отзыв/воспоминание о студенческих годах во вкладке  <a [routerLink]="['/reviews']" routerLinkActive="router-link-active">ОТЗЫВЫ</a>  или посмотреть отзывы других людей</p>
+    </div>
+</div>
+
+
+
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()"> 
+    <div class="modalW" #modal>
+        <div class="modalW-content">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4 class="text center">Отзыв</h4>
+                </div>
+        
+                <hr class="hr-line">
+        
+                <div class="col-lg-12">
+
+                        <div class="input-field">
+                            <input type="text" id="comment-name" formControlName="name">
+                            <label for="comment-name">Имя*</label>
+                            
+                            <span class="helper-text red-text" *ngIf="form.controls['name'].invalid && form.controls['name'].touched">Имя не может быть пустым</span>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="comment-group">Группа*</label>
+                            <input formControlName="group" type="text" id="comment-group" >
+                            <span class="helper-text red-text" *ngIf="form.controls['group'].invalid && form.controls['group'].touched">Введите свою группу</span>
+
+                          </div>
+                    
+                          <div class="input-field">
+                            <label for="comment-work">Место работы</label>
+                            <input formControlName="placeOfWork" type="text" id="comment-work" >
+                          </div>
+                    
+                          <div class="input-field">
+                            <label for="comment-city">Город</label>
+                            <input formControlName="city" type="text" id="comment-city" >
+                          </div>
+                    
+                    
+                          <div class="input-field">
+                            <label for="comment-review">Отзыв*</label>
+                            <input formControlName="feedback" type="text" id="comment-review" class="review" >
+                            <span class="helper-text red-text" *ngIf="form.controls['feedback'].invalid && form.controls['feedback'].touched">Отзыв не должен быть пустым</span>
+                          </div>
+
+                          <div class="input-field">
+                            <input #input formControlName="photo" (change) ="onFileUpload($event)" type="file" id="photo-rev" class="review" hidden>
+
+                            <button class="btn waves-effect waves-light" type="button" (click)="triggerClick()">Загрузить изображение
+                                <i class="material-icons right">account_circle</i>
+                            </button>
+
+                          </div>
+
+                      <div class="form-send">
+                        <button type="button" (click)="onCancel()" class="modalW-action waves-effect waves-black btn-flat">Отмена</button>
+                        <button class="modalW-action btn" type="submit" [disabled] = "form.invalid">Отправить отзыв</button>
+                    </div>
+                    
+                </div>
+            </div>     
+        </div>
+    </div>
+</form>

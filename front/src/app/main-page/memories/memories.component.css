@@ -1,0 +1,30 @@
+[nz-carousel-content] {
+  text-align: center;
+  height: 110px;
+  line-height:normal;
+  background: #00A460;
+  color: #fff;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.section_title {
+	padding: 40px 0 5px;
+	text-align: center;
+}
+h5 {
+  text-align: center;
+  color: #fff;
+}
+img{
+  margin: auto;
+  margin-top: 5%;
+  max-width: 80%;
+  max-height: 120%;
+}
+p{
+  margin: auto;
+  margin-top: 5%;
+  padding: 0;
+  margin-right: 15%;
+}

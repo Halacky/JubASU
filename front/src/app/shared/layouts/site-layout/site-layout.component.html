@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - timeline</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="site-layout.component.css">
+
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+	<div class="container">
+		<div class="header_inner">
+			<div class="logo">
+				<img [routerLink]="['/']"  class="header_logo" src="../../../../assets/logo_ipolytech.jpg">
+			</div>
+			
+			<nav class="nav">
+				<a *ngFor="let link of links" class="nav__link" routerLink='/{{link.url}}' routerLinkActive="router-link-active" >{{link.name}}</a>
+			</nav>
+		</div>
+	</div>
+	<div class="photo">
+	<img class="main_img" src="../../../../assets/glanvaya_50_let.jpg" >
+	</div>
+	
+</header>
+
+<router-outlet>
+
+
+</router-outlet>
+
+    
+<!-- FOOTER -->
+<hr class="hr-line">
+<footer class="footer">
+	<div class="container">
+	    <div class="row">
+                <div class="col">
+            <p class="footer__name"> Created by</p>
+            
+            </div>
+            
+            <div class="col">
+            <p class="footer__social-icons">
+                
+            <a href="########" target="_blank">   
+            <img src="../../../../assets/telega1.png">
+            </a>     
+                
+            <a href="https://www.instagram.com/insta_irnitu/" target="_blank">
+            <img src="../../../../assets/inst1%20(1).png"></a> 
+             
+            <a href="https://https://vk.com/itds_istu" target="_blank">   
+            <img src="../../../../assets/vk1.png">
+            </a>     
+                
+            </p>
+            </div>
+            
+            <div class="col">
+            <p class="footer__name"> ИрНИТУ</p>
+            </div>
+        </div>
+	</div>
+</footer>
+
+
+</body>
+</html>
+
+
+
+
+

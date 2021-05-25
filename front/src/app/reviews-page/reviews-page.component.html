@@ -1,0 +1,211 @@
+
+    <!-- <div class="col s12 m6 l3 offset-m2 offset-l3">
+        
+    </div>
+ -->
+
+ <div class="fixed-action-btn">
+    <a class="btn-floating btn-large waves-effect waves-light green" nzTooltipTitle="Написать отзыв" nzTooltipPlacement="leftTop" nz-button nz-tooltip  (click)="createReview()"><i class="material-icons">mode_edit</i></a>
+  </div>
+
+
+ <div class="container">
+    <!-- <div class="row">
+        <div class="col s6" *ngFor="let review of revArr">
+            <div class="card-panel grey lighten-5 z-depth-1" >
+                <div>
+                    <div class="row valign-wrapper" >
+
+                        <div class="col s2">
+                          <img src="{{review.imageSrc}}" alt="" class="circle responsive-img">
+                        </div>
+
+                        <div class="col s10">
+                          <span class="black-text">
+                            {{review.name}}
+                          </span>
+                        </div>
+                        
+                        <ng-template #empty>
+                            <div class="center">Отзывов нет</div>
+                          </ng-template>
+                          
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div> -->
+
+
+
+
+
+
+
+
+      <!-- <div class="row">
+        <div class="col s12"  *ngFor="let review of revArr">
+    
+        <div class="col s2">
+            <img src="{{review.imageSrc}}" alt="" class="circle responsive-img">
+        </div>
+    
+          <div class="card-panel teal">
+            <span class="white-text">{{review.feedback}}</span>
+          </div>
+    
+        </div>
+      </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- <div class="col s12 m7">
+        <div class="card horizontal" *ngFor="let review of revArr">
+
+          <div class="card-image">
+            <img src="{{review.imageSrc}}" alt="" class="circle responsive-img">
+          </div>
+
+          <div class="card-stacked">
+            <div class="card-content">
+                <p>{{review.name}}</p>
+              </div>
+            <div class="card-content">
+              <p>{{review.feedback}}</p>
+            </div>
+
+          </div>
+        </div>
+      </div> -->
+
+
+
+
+
+
+
+      <!-- <div class="row">
+        <div class="col s12">
+
+          <div class="card col s5" *ngFor="let review of revArr" >
+            <div class="card-image">
+              <img src="{{review.imageSrc}}">
+            </div>
+            
+            <div class="card-content">
+              <span class="card-title">{{review.name}}</span>
+              <p>{{review.feedback}}</p>
+            </div>
+
+          </div>
+        </div>
+      </div> -->
+
+
+      <nz-comment nzAuthor="{{review.name}}  {{review.group}}" *ngFor="let review of revArr">
+        <nz-avatar nz-comment-avatar nzIcon="user" nzSrc="{{review.imageSrc}}"></nz-avatar>
+        <nz-comment-content>
+          
+          <p>
+            {{review.feedback}}
+          </p>
+          
+        </nz-comment-content>
+      </nz-comment>
+
+
+
+      <!-- <nz-collapse nzGhost>
+        <nz-collapse-panel *ngFor="let review of revArr" nzHeader="{{review.name}}  {{review.group}}" [nzActive]="review.active">
+          <nz-comment>
+            <nz-avatar nz-comment-avatar nzIcon="user" nzSrc="{{review.imageSrc}}"></nz-avatar>
+            <nz-comment-content>
+              
+              <p>
+                {{review.feedback}}
+              </p>
+              
+            </nz-comment-content>
+          </nz-comment>
+        </nz-collapse-panel>
+      </nz-collapse> -->
+
+  </div>
+
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()"> 
+    <div class="modalW" #modal>
+        <div class="modalW-content">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4 class="text center">Отзыв</h4>
+                </div>
+        
+                <hr class="hr-line">
+        
+                <div class="col-lg-12">
+
+                        <div class="input-field">
+                            <input type="text" id="comment-name" formControlName="name">
+                            <label for="comment-name">ФИО*</label>
+                            <span class="helper-text red-text" *ngIf="form.controls['name'].invalid && form.controls['name'].touched">Имя не может быть пустым</span>
+                        </div>
+
+                        <div class="input-field">
+                          <label for="comment-mail">Адрес электронной почты</label>
+                          <input formControlName="mail" type="text" id="comment-mail" >
+                          <span class="helper-text red-text" *ngIf="form.controls['mail'].invalid && form.controls['mail'].touched">Адрес почты должен содержать "@"</span>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="comment-group">Группа*</label>
+                            <input formControlName="group" type="text" id="comment-group" >
+                            <span class="helper-text red-text" *ngIf="form.controls['group'].invalid && form.controls['group'].touched">Введите свою группу</span>
+
+                          </div>
+                    
+                          <div class="input-field">
+                            <label for="comment-work">Место работы</label>
+                            <input formControlName="placeOfWork" type="text" id="comment-work" >
+                          </div>
+                    
+                          <div class="input-field">
+                            <label for="comment-city">Город</label>
+                            <input formControlName="city" type="text" id="comment-city" >
+                          </div>
+                    
+                    
+                          <div class="input-field">
+                            <label for="comment-review">Отзыв</label>
+                            <input formControlName="feedback" type="text" id="comment-review" class="review" >
+                            <span class="helper-text red-text" *ngIf="form.controls['feedback'].invalid && form.controls['feedback'].touched">Отзыв не должен быть пустым и больше 1500 символов</span>
+                          </div>
+
+                          <div class="input-field">
+                            <input #input formControlName="photo" (change) ="onFileUpload($event)" type="file" id="photo-rev" class="review" hidden>
+
+                            <button class="btn waves-effect waves-light" type="button" (click)="triggerClick()">Загрузить изображение
+                                <i class="material-icons right">account_circle</i>
+                            </button>
+
+                          </div>
+
+                      <div class="form-send">
+                        <button type="button" (click)="onCancel()" class="modalW-action waves-effect waves-black btn-flat">Отмена</button>
+                        <button class="modalW-action btn" type="submit" [disabled] = "form.invalid">Отправить отзыв</button>
+                    </div>
+                    
+                </div>
+            </div>     
+        </div>
+    </div>
+</form>

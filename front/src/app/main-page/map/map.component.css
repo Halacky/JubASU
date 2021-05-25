@@ -1,0 +1,12 @@
+.con {
+  margin: auto;
+  width: 1000px;
+  height: 500px;
+}
+agm-map {
+  height: 100%;
+}
+.section_title {
+	padding: 40px 0 5px;
+	text-align: center;
+}

@@ -1,0 +1,12 @@
+
+<h3 class="section_title">
+   Наши выпускники
+</h3>
+<div class="con">
+  <agm-map [zoom]="1.9" [latitude]='47.279229002570844' [longitude]='-1.6699218750000002'>
+    <agm-marker *ngFor='let loc of mylocations' [latitude]='loc.lat' [longitude]='loc.lng'></agm-marker>
+    
+
+</agm-map>
+</div>
+
